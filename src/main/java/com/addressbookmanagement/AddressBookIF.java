@@ -1,30 +1,39 @@
 package com.addressbookmanagement;
 
+import com.opencsv.exceptions.CsvDataTypeMismatchException;
+import com.opencsv.exceptions.CsvRequiredFieldEmptyException;
+import com.opencsv.exceptions.CsvValidationException;
+
+import java.io.IOException;
 import java.util.List;
 import java.util.Scanner;
 
 public interface AddressBookIF {
-    void operation();
+    public void operation();
 
-    void createContactPerson(Scanner scannerObject);
+    public void createContactPerson(Scanner scannerObject);
 
-    void addContact(String firstName, ContactPerson person);
+    public void addContact(String firstName, ContactPerson person);
 
-    void addPersonToCity(ContactPerson contact);
+    public void displayContents();
 
-    void addPersonToState(ContactPerson contact);
+    public void editPerson();
 
-    void editPerson();
+    public void deletePerson();
 
-    void deletePerson();
+    public void addPersonToCity(ContactPerson contact);
 
-    void displayContents();
+    public void addPersonToState(ContactPerson contact);
 
-    void printSortedList(List<ContactPerson> sortedContactList);
+    public void printSortedList(List<ContactPerson> sortedContactList);
 
-    void sortAddressBook(int sortingChoice);
+    public void sortAddressBook(int sortingChoice);
 
-    void writeToAddressBookFile(AddressBook.IOService ioService);
+    public void writeToAddressBookFile(AddressBook.IOService ioService);
 
-    List<String> readDataFromFile(AddressBook.IOService fileIo);
+    public List<String> readDataFromFile(AddressBook.IOService fileIo);
+
+    public void writeDataToCSV() throws IOException, CsvRequiredFieldEmptyException, CsvDataTypeMismatchException;
+
+    public <CsvValidationException extends Throwable> void readDataFromCSV() throws IOException, CsvValidationException, com.opencsv.exceptions.CsvValidationException;
 }

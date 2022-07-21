@@ -32,7 +32,7 @@ public class AddressBookTest {
         address.setCity(city);
         address.setState(state);
         address.setZip(zipCode);
-        person.setAddress(address);
+
 
         addressBook.addContact(firstName, person);
 
@@ -50,7 +50,7 @@ public class AddressBookTest {
         address.setCity(city);
         address.setState(state);
         address.setZip(zipCode);
-        person.setAddress(address);
+
 
         addressBook.addContact(firstName, person);
 
